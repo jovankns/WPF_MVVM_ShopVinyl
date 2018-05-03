@@ -1,0 +1,87 @@
+﻿<Window x:Class="WPFShop.AddOffice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddOffice" ResizeMode="NoResize" Height="300" Width="519">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="1" x:Name="lblOfficeName" Content="Office Name:" Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="3" x:Name="lblCity" Content="City:" Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="5" x:Name="lblAddress" Content="Address:" Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="7" x:Name="lblPostalCode" Content="PostalCode:" Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="9" x:Name="lblPhone" Content="Phone:" Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="11" x:Name="lblMobile" Content="Mobile:" Padding="0" HorizontalAlignment="Right"/>
+        <!--Validacija-->
+        <Label Grid.Column="5" Grid.Row="1" x:Name="lblValidOfficeName" 
+               Content="  It must contain between 4 and 20 characters"  
+               HorizontalAlignment="Right" VerticalAlignment="Top" Width="250"/>
+        <Label Grid.Column="5" Grid.Row="3" x:Name="lblValidCity" 
+               Content="  It must contain between 4 and 20 characters"  
+               HorizontalAlignment="Right" VerticalAlignment="Top" Width="250"/>
+        <Label Grid.Column="5" Grid.Row="5" x:Name="lblValidAddress" 
+               Content="  It must contain between 4 and 20 characters"  
+               HorizontalAlignment="Right" VerticalAlignment="Top" Width="250"/>
+        <Label Grid.Column="5" Grid.Row="7" x:Name="lblValidPostalCode" 
+               Content="  It must contain 6 numbers"  
+               HorizontalAlignment="Right" VerticalAlignment="Top" Width="250"/>
+        <Label Grid.Column="5" Grid.Row="9" x:Name="lblValidPhone" 
+               Content="  It must contain between 6 and 12 numbers"  
+               HorizontalAlignment="Right" VerticalAlignment="Top" Width="250"/>
+        <Label Grid.Column="5" Grid.Row="11" x:Name="lblValidMobile" 
+               Content="  It must contain between 9 and 10 numbers"  
+               HorizontalAlignment="Right" VerticalAlignment="Top" Width="250"/>
+        <TextBox Grid.Column="3" Grid.Row="1" x:Name="txtOfficeName" Height="20" Width="150"
+                 Text="{Binding Office.OfficeName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="3" x:Name="txtCity" Height="20" Width="150" 
+                 KeyDown="txtCity_KeyDown"
+                 Text="{Binding Office.City, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="5" x:Name="txtAddress" Height="20" Width="150"
+                 Text="{Binding Office.Address, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="7" x:Name="txtPostalCode" Height="20" Width="150"
+                 Text="{Binding Office.PostalCode, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="9" x:Name="txtPhone" Height="20" Width="150"
+                 Text="{Binding Office.Phone, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="11" x:Name="txtMobile" Height="20" Width="150"
+                 Text="{Binding Office.Mobile, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="3" Grid.Row="13" x:Name="btnSave" Content="Save" Height="20"
+                Width="70" HorizontalAlignment="Left" Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="3" Grid.Row="13" x:Name="btnClose" Content="Close" Height="20"
+                Width="70" HorizontalAlignment="Right" Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="5" Grid.Row="1" x:Name="lblValidName" Content="*" Padding="0" 
+               HorizontalAlignment="Left" Foreground="#FFFB0000" FontSize="20"/>
+        <Label Grid.Column="5" Grid.Row="3" x:Name="lblValidCitys" Content="*" Padding="0" 
+               HorizontalAlignment="Left" Foreground="#FFFB0000" FontSize="20"/>
+        <Label Grid.Column="5" Grid.Row="5" x:Name="lblValidAddresss" Content="*" Padding="0" 
+               HorizontalAlignment="Left" Foreground="#FFFB0000" FontSize="20"/>
+        <Label Grid.Column="5" Grid.Row="7" x:Name="lblValidPostsalCodes" Content="*" Padding="0" 
+               HorizontalAlignment="Left" Foreground="#FFFB0000" FontSize="20"/>
+        <Label Grid.Column="5" Grid.Row="9" x:Name="lblValidPhones" Content="*" Padding="0" 
+               HorizontalAlignment="Left" Foreground="#FFFB0000" FontSize="20"/>
+        <Label Grid.Column="5" Grid.Row="11" x:Name="lblValidMobiles" Content="*" Padding="0" 
+               HorizontalAlignment="Left" Foreground="#FFFB0000" FontSize="20"/>
+    </Grid>
+</Window>

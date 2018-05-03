@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFShopVinyl" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFShopVinyl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfvwUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUser" nillable="true" type="tns:vwUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUser" nillable="true" type="tns:ArrayOfvwUser" />
+  <xs:complexType name="vwUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="role" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwUser" nillable="true" type="tns:vwUser" />
+  <xs:complexType name="ArrayOfvwOffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwOffice" nillable="true" type="tns:vwOffice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwOffice" nillable="true" type="tns:ArrayOfvwOffice" />
+  <xs:complexType name="vwOffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OfficeID" type="xs:int" />
+      <xs:element minOccurs="0" name="OfficeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwOffice" nillable="true" type="tns:vwOffice" />
+  <xs:complexType name="ArrayOfvwBoss">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwBoss" nillable="true" type="tns:vwBoss" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwBoss" nillable="true" type="tns:ArrayOfvwBoss" />
+  <xs:complexType name="vwBoss">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BossID" type="xs:int" />
+      <xs:element minOccurs="0" name="BossLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expr1" type="xs:int" />
+      <xs:element minOccurs="0" name="JobDescritions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OfficeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OfficeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwBoss" nillable="true" type="tns:vwBoss" />
+  <xs:complexType name="ArrayOfvwEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwEmployee" nillable="true" type="tns:vwEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwEmployee" nillable="true" type="tns:ArrayOfvwEmployee" />
+  <xs:complexType name="vwEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BossID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="BossName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+      <xs:element minOccurs="0" name="EmployeeLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expr1" type="xs:int" />
+      <xs:element minOccurs="0" name="JobDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwEmployee" nillable="true" type="tns:vwEmployee" />
+  <xs:complexType name="ArrayOfvwOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwOrder" nillable="true" type="tns:vwOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwOrder" nillable="true" type="tns:ArrayOfvwOrder" />
+  <xs:complexType name="vwOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlbumID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expr1" type="xs:int" />
+      <xs:element minOccurs="0" name="Expr2" type="xs:int" />
+      <xs:element minOccurs="0" name="Expr3" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfPieces" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalPrice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwOrder" nillable="true" type="tns:vwOrder" />
+  <xs:complexType name="ArrayOfvwAlbum">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAlbum" nillable="true" type="tns:vwAlbum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAlbum" nillable="true" type="tns:ArrayOfvwAlbum" />
+  <xs:complexType name="vwAlbum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlbumID" type="xs:int" />
+      <xs:element minOccurs="0" name="ArtistID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expr1" type="xs:int" />
+      <xs:element minOccurs="0" name="Expr2" type="xs:int" />
+      <xs:element minOccurs="0" name="GenreID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Storage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwAlbum" nillable="true" type="tns:vwAlbum" />
+  <xs:complexType name="ArrayOfvwGenre">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwGenre" nillable="true" type="tns:vwGenre" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwGenre" nillable="true" type="tns:ArrayOfvwGenre" />
+  <xs:complexType name="vwGenre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenreID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwGenre" nillable="true" type="tns:vwGenre" />
+  <xs:complexType name="ArrayOfvwArtist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwArtist" nillable="true" type="tns:vwArtist" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwArtist" nillable="true" type="tns:ArrayOfvwArtist" />
+  <xs:complexType name="vwArtist">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArtistID" type="xs:int" />
+      <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwArtist" nillable="true" type="tns:vwArtist" />
+  <xs:complexType name="ArrayOfvwCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwCustomer" nillable="true" type="tns:vwCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwCustomer" nillable="true" type="tns:ArrayOfvwCustomer" />
+  <xs:complexType name="vwCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vwCustomer" nillable="true" type="tns:vwCustomer" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+</xs:schema>

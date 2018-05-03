@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VinylRecordsShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAlbum">
+          <Key>
+            <PropertyRef Name="AlbumID" />
+          </Key>
+          <Property Name="AlbumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenreID" Type="int" />
+          <Property Name="ArtistID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Storage" Type="int" />
+        </EntityType>
+        <EntityType Name="tblArtist">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblBoss">
+          <Key>
+            <PropertyRef Name="BossID" />
+          </Key>
+          <Property Name="BossID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficeID" Type="int" />
+          <Property Name="BossName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BossLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobDescritions" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblEmployees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BossID" Type="int" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobDescription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblGenre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblOffices">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblOrders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="AlbumID" Type="int" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="TotalPrice" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumberOfPieces" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwAlbum' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwAlbum">
+          <Key>
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="AlbumID" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlbumID" Type="int" Nullable="false" />
+          <Property Name="GenreID" Type="int" />
+          <Property Name="ArtistID" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Storage" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwArtists' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwArtists">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwBoss' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwBoss">
+          <Key>
+            <PropertyRef Name="BossID" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="BossID" Type="int" Nullable="false" />
+          <Property Name="OfficeID" Type="int" />
+          <Property Name="BossName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BossLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobDescritions" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="OfficeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwCustomers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwCustomers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwEmployees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwEmployees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="BossID" Type="int" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="JobDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="BossName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwGenres' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwGenres">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwOffice' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwOffice">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwOrders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwOrders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="AlbumID" Type="int" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="TotalPrice" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumberOfPieces" Type="int" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr2" Type="int" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr3" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VinylRecordsShop.dbo.vwUser' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tblAlbum_tblArtist">
+          <End Role="tblArtist" Type="Self.tblArtist" Multiplicity="0..1" />
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArtist">
+              <PropertyRef Name="ArtistID" />
+            </Principal>
+            <Dependent Role="tblAlbum">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlbum_tblGenre">
+          <End Role="tblGenre" Type="Self.tblGenre" Multiplicity="0..1" />
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGenre">
+              <PropertyRef Name="GenreID" />
+            </Principal>
+            <Dependent Role="tblAlbum">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBoss_tblOffices">
+          <End Role="tblOffices" Type="Self.tblOffices" Multiplicity="0..1" />
+          <End Role="tblBoss" Type="Self.tblBoss" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOffices">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="tblBoss">
+              <PropertyRef Name="OfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployees_tblBoss">
+          <End Role="tblBoss" Type="Self.tblBoss" Multiplicity="0..1" />
+          <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBoss">
+              <PropertyRef Name="BossID" />
+            </Principal>
+            <Dependent Role="tblEmployees">
+              <PropertyRef Name="BossID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrders_tblAlbum">
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="0..1" />
+          <End Role="tblOrders" Type="Self.tblOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAlbum">
+              <PropertyRef Name="AlbumID" />
+            </Principal>
+            <Dependent Role="tblOrders">
+              <PropertyRef Name="AlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrders_tblCustomer">
+          <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblOrders" Type="Self.tblOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblOrders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrders_tblEmployees">
+          <End Role="tblEmployees" Type="Self.tblEmployees" Multiplicity="0..1" />
+          <End Role="tblOrders" Type="Self.tblOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="tblOrders">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VinylRecordsShopModelStoreContainer">
+          <EntitySet Name="tblAlbum" EntityType="Self.tblAlbum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblArtist" EntityType="Self.tblArtist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBoss" EntityType="Self.tblBoss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGenre" EntityType="Self.tblGenre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOffices" EntityType="Self.tblOffices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOrders" EntityType="Self.tblOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwAlbum" EntityType="Self.vwAlbum" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwAlbum].[Name] AS [Name], 
+    [vwAlbum].[Expr1] AS [Expr1], 
+    [vwAlbum].[Expr2] AS [Expr2], 
+    [vwAlbum].[ArtistName] AS [ArtistName], 
+    [vwAlbum].[AlbumID] AS [AlbumID], 
+    [vwAlbum].[GenreID] AS [GenreID], 
+    [vwAlbum].[ArtistID] AS [ArtistID], 
+    [vwAlbum].[Title] AS [Title], 
+    [vwAlbum].[Price] AS [Price], 
+    [vwAlbum].[Storage] AS [Storage]
+    FROM [dbo].[vwAlbum] AS [vwAlbum]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwArtists" EntityType="Self.vwArtists" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwArtists].[ArtistID] AS [ArtistID], 
+    [vwArtists].[ArtistName] AS [ArtistName]
+    FROM [dbo].[vwArtists] AS [vwArtists]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwBoss" EntityType="Self.vwBoss" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwBoss].[BossID] AS [BossID], 
+    [vwBoss].[OfficeID] AS [OfficeID], 
+    [vwBoss].[BossName] AS [BossName], 
+    [vwBoss].[BossLastName] AS [BossLastName], 
+    [vwBoss].[BirthDate] AS [BirthDate], 
+    [vwBoss].[Address] AS [Address], 
+    [vwBoss].[City] AS [City], 
+    [vwBoss].[Mobile] AS [Mobile], 
+    [vwBoss].[JobDescritions] AS [JobDescritions], 
+    [vwBoss].[Expr1] AS [Expr1], 
+    [vwBoss].[OfficeName] AS [OfficeName]
+    FROM [dbo].[vwBoss] AS [vwBoss]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwCustomers" EntityType="Self.vwCustomers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwCustomers].[CustomerID] AS [CustomerID], 
+    [vwCustomers].[Name] AS [Name], 
+    [vwCustomers].[LastName] AS [LastName], 
+    [vwCustomers].[Country] AS [Country], 
+    [vwCustomers].[Address] AS [Address], 
+    [vwCustomers].[City] AS [City], 
+    [vwCustomers].[Mobile] AS [Mobile]
+    FROM [dbo].[vwCustomers] AS [vwCustomers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwEmployees" EntityType="Self.vwEmployees" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwEmployees].[EmployeeID] AS [EmployeeID], 
+    [vwEmployees].[BossID] AS [BossID], 
+    [vwEmployees].[EmployeeName] AS [EmployeeName], 
+    [vwEmployees].[EmployeeLastName] AS [EmployeeLastName], 
+    [vwEmployees].[BirthDate] AS [BirthDate], 
+    [vwEmployees].[Address] AS [Address], 
+    [vwEmployees].[City] AS [City], 
+    [vwEmployees].[Mobile] AS [Mobile], 
+    [vwEmployees].[JobDescription] AS [JobDescription], 
+    [vwEmployees].[Expr1] AS [Expr1], 
+    [vwEmployees].[BossName] AS [BossName]
+    FROM [dbo].[vwEmployees] AS [vwEmployees]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwGenres" EntityType="Self.vwGenres" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwGenres].[GenreID] AS [GenreID], 
+    [vwGenres].[Name] AS [Name], 
+    [vwGenres].[Description] AS [Description]
+    FROM [dbo].[vwGenres] AS [vwGenres]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwOffice" EntityType="Self.vwOffice" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwOffice].[OfficeID] AS [OfficeID], 
+    [vwOffice].[OfficeName] AS [OfficeName], 
+    [vwOffice].[City] AS [City], 
+    [vwOffice].[Address] AS [Address], 
+    [vwOffice].[PostalCode] AS [PostalCode], 
+    [vwOffice].[Phone] AS [Phone], 
+    [vwOffice].[Mobile] AS [Mobile]
+    FROM [dbo].[vwOffice] AS [vwOffice]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwOrders" EntityType="Self.vwOrders" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwOrders].[OrderID] AS [OrderID], 
+    [vwOrders].[EmployeeID] AS [EmployeeID], 
+    [vwOrders].[AlbumID] AS [AlbumID], 
+    [vwOrders].[CustomerID] AS [CustomerID], 
+    [vwOrders].[OrderDate] AS [OrderDate], 
+    [vwOrders].[TotalPrice] AS [TotalPrice], 
+    [vwOrders].[NumberOfPieces] AS [NumberOfPieces], 
+    [vwOrders].[Expr1] AS [Expr1], 
+    [vwOrders].[Name] AS [Name], 
+    [vwOrders].[Expr2] AS [Expr2], 
+    [vwOrders].[EmployeeName] AS [EmployeeName], 
+    [vwOrders].[Expr3] AS [Expr3], 
+    [vwOrders].[Title] AS [Title]
+    FROM [dbo].[vwOrders] AS [vwOrders]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwUser" EntityType="Self.vwUser" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwUser].[ID] AS [ID], 
+    [vwUser].[username] AS [username], 
+    [vwUser].[password] AS [password], 
+    [vwUser].[role] AS [role]
+    FROM [dbo].[vwUser] AS [vwUser]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tblAlbum_tblArtist" Association="Self.FK_tblAlbum_tblArtist">
+            <End Role="tblArtist" EntitySet="tblArtist" />
+            <End Role="tblAlbum" EntitySet="tblAlbum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlbum_tblGenre" Association="Self.FK_tblAlbum_tblGenre">
+            <End Role="tblGenre" EntitySet="tblGenre" />
+            <End Role="tblAlbum" EntitySet="tblAlbum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBoss_tblOffices" Association="Self.FK_tblBoss_tblOffices">
+            <End Role="tblOffices" EntitySet="tblOffices" />
+            <End Role="tblBoss" EntitySet="tblBoss" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployees_tblBoss" Association="Self.FK_tblEmployees_tblBoss">
+            <End Role="tblBoss" EntitySet="tblBoss" />
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrders_tblAlbum" Association="Self.FK_tblOrders_tblAlbum">
+            <End Role="tblAlbum" EntitySet="tblAlbum" />
+            <End Role="tblOrders" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrders_tblCustomer" Association="Self.FK_tblOrders_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomer" />
+            <End Role="tblOrders" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrders_tblEmployees" Association="Self.FK_tblOrders_tblEmployees">
+            <End Role="tblEmployees" EntitySet="tblEmployees" />
+            <End Role="tblOrders" EntitySet="tblOrders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VinylRecordsShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VinylRecordsShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAlbums" EntityType="VinylRecordsShopModel.tblAlbum" />
+          <EntitySet Name="tblArtists" EntityType="VinylRecordsShopModel.tblArtist" />
+          <EntitySet Name="tblBosses" EntityType="VinylRecordsShopModel.tblBoss" />
+          <EntitySet Name="tblCustomers" EntityType="VinylRecordsShopModel.tblCustomer" />
+          <EntitySet Name="tblEmployees" EntityType="VinylRecordsShopModel.tblEmployee" />
+          <EntitySet Name="tblGenres" EntityType="VinylRecordsShopModel.tblGenre" />
+          <EntitySet Name="tblOffices" EntityType="VinylRecordsShopModel.tblOffice" />
+          <EntitySet Name="tblOrders" EntityType="VinylRecordsShopModel.tblOrder" />
+          <EntitySet Name="tblUsers" EntityType="VinylRecordsShopModel.tblUser" />
+          <EntitySet Name="vwAlbums" EntityType="VinylRecordsShopModel.vwAlbum" />
+          <EntitySet Name="vwArtists" EntityType="VinylRecordsShopModel.vwArtist" />
+          <EntitySet Name="vwBosses" EntityType="VinylRecordsShopModel.vwBoss" />
+          <EntitySet Name="vwCustomers" EntityType="VinylRecordsShopModel.vwCustomer" />
+          <EntitySet Name="vwEmployees" EntityType="VinylRecordsShopModel.vwEmployee" />
+          <EntitySet Name="vwGenres" EntityType="VinylRecordsShopModel.vwGenre" />
+          <EntitySet Name="vwOffices" EntityType="VinylRecordsShopModel.vwOffice" />
+          <EntitySet Name="vwOrders" EntityType="VinylRecordsShopModel.vwOrder" />
+          <EntitySet Name="vwUsers" EntityType="VinylRecordsShopModel.vwUser" />
+          <AssociationSet Name="FK_tblAlbum_tblArtist" Association="VinylRecordsShopModel.FK_tblAlbum_tblArtist">
+            <End Role="tblArtist" EntitySet="tblArtists" />
+            <End Role="tblAlbum" EntitySet="tblAlbums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAlbum_tblGenre" Association="VinylRecordsShopModel.FK_tblAlbum_tblGenre">
+            <End Role="tblGenre" EntitySet="tblGenres" />
+            <End Role="tblAlbum" EntitySet="tblAlbums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrders_tblAlbum" Association="VinylRecordsShopModel.FK_tblOrders_tblAlbum">
+            <End Role="tblAlbum" EntitySet="tblAlbums" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBoss_tblOffices" Association="VinylRecordsShopModel.FK_tblBoss_tblOffices">
+            <End Role="tblOffice" EntitySet="tblOffices" />
+            <End Role="tblBoss" EntitySet="tblBosses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEmployees_tblBoss" Association="VinylRecordsShopModel.FK_tblEmployees_tblBoss">
+            <End Role="tblBoss" EntitySet="tblBosses" />
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrders_tblCustomer" Association="VinylRecordsShopModel.FK_tblOrders_tblCustomer">
+            <End Role="tblCustomer" EntitySet="tblCustomers" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOrders_tblEmployees" Association="VinylRecordsShopModel.FK_tblOrders_tblEmployees">
+            <End Role="tblEmployee" EntitySet="tblEmployees" />
+            <End Role="tblOrder" EntitySet="tblOrders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblAlbum">
+          <Key>
+            <PropertyRef Name="AlbumID" />
+          </Key>
+          <Property Name="AlbumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenreID" Type="Int32" />
+          <Property Name="ArtistID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Storage" Type="Int32" />
+          <NavigationProperty Name="tblArtist" Relationship="VinylRecordsShopModel.FK_tblAlbum_tblArtist" FromRole="tblAlbum" ToRole="tblArtist" />
+          <NavigationProperty Name="tblGenre" Relationship="VinylRecordsShopModel.FK_tblAlbum_tblGenre" FromRole="tblAlbum" ToRole="tblGenre" />
+          <NavigationProperty Name="tblOrders" Relationship="VinylRecordsShopModel.FK_tblOrders_tblAlbum" FromRole="tblAlbum" ToRole="tblOrder" />
+        </EntityType>
+        <EntityType Name="tblArtist">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAlbums" Relationship="VinylRecordsShopModel.FK_tblAlbum_tblArtist" FromRole="tblArtist" ToRole="tblAlbum" />
+        </EntityType>
+        <EntityType Name="tblBoss">
+          <Key>
+            <PropertyRef Name="BossID" />
+          </Key>
+          <Property Name="BossID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeID" Type="Int32" />
+          <Property Name="BossName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BossLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescritions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblOffice" Relationship="VinylRecordsShopModel.FK_tblBoss_tblOffices" FromRole="tblBoss" ToRole="tblOffice" />
+          <NavigationProperty Name="tblEmployees" Relationship="VinylRecordsShopModel.FK_tblEmployees_tblBoss" FromRole="tblBoss" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblOrders" Relationship="VinylRecordsShopModel.FK_tblOrders_tblCustomer" FromRole="tblCustomer" ToRole="tblOrder" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BossID" Type="Int32" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblBoss" Relationship="VinylRecordsShopModel.FK_tblEmployees_tblBoss" FromRole="tblEmployee" ToRole="tblBoss" />
+          <NavigationProperty Name="tblOrders" Relationship="VinylRecordsShopModel.FK_tblOrders_tblEmployees" FromRole="tblEmployee" ToRole="tblOrder" />
+        </EntityType>
+        <EntityType Name="tblGenre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblAlbums" Relationship="VinylRecordsShopModel.FK_tblAlbum_tblGenre" FromRole="tblGenre" ToRole="tblAlbum" />
+        </EntityType>
+        <EntityType Name="tblOffice">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblBosses" Relationship="VinylRecordsShopModel.FK_tblBoss_tblOffices" FromRole="tblOffice" ToRole="tblBoss" />
+        </EntityType>
+        <EntityType Name="tblOrder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="AlbumID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfPieces" Type="Int32" />
+          <NavigationProperty Name="tblAlbum" Relationship="VinylRecordsShopModel.FK_tblOrders_tblAlbum" FromRole="tblOrder" ToRole="tblAlbum" />
+          <NavigationProperty Name="tblCustomer" Relationship="VinylRecordsShopModel.FK_tblOrders_tblCustomer" FromRole="tblOrder" ToRole="tblCustomer" />
+          <NavigationProperty Name="tblEmployee" Relationship="VinylRecordsShopModel.FK_tblOrders_tblEmployees" FromRole="tblOrder" ToRole="tblEmployee" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwAlbum">
+          <Key>
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="AlbumID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+          <Property Name="ArtistName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlbumID" Type="Int32" Nullable="false" />
+          <Property Name="GenreID" Type="Int32" />
+          <Property Name="ArtistID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Storage" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwArtist">
+          <Key>
+            <PropertyRef Name="ArtistID" />
+          </Key>
+          <Property Name="ArtistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwBoss">
+          <Key>
+            <PropertyRef Name="BossID" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="BossID" Type="Int32" Nullable="false" />
+          <Property Name="OfficeID" Type="Int32" />
+          <Property Name="BossName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BossLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescritions" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="OfficeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="BossID" Type="Int32" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="BossName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwGenre">
+          <Key>
+            <PropertyRef Name="GenreID" />
+          </Key>
+          <Property Name="GenreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwOffice">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwOrder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Expr2" />
+            <PropertyRef Name="Expr3" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="AlbumID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfPieces" Type="Int32" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr2" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr3" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vwUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tblAlbum_tblArtist">
+          <End Type="VinylRecordsShopModel.tblArtist" Role="tblArtist" Multiplicity="0..1" />
+          <End Type="VinylRecordsShopModel.tblAlbum" Role="tblAlbum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArtist">
+              <PropertyRef Name="ArtistID" />
+            </Principal>
+            <Dependent Role="tblAlbum">
+              <PropertyRef Name="ArtistID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAlbum_tblGenre">
+          <End Type="VinylRecordsShopModel.tblGenre" Role="tblGenre" Multiplicity="0..1" />
+          <End Type="VinylRecordsShopModel.tblAlbum" Role="tblAlbum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGenre">
+              <PropertyRef Name="GenreID" />
+            </Principal>
+            <Dependent Role="tblAlbum">
+              <PropertyRef Name="GenreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrders_tblAlbum">
+          <End Type="VinylRecordsShopModel.tblAlbum" Role="tblAlbum" Multiplicity="0..1" />
+          <End Type="VinylRecordsShopModel.tblOrder" Role="tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAlbum">
+              <PropertyRef Name="AlbumID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="AlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBoss_tblOffices">
+          <End Type="VinylRecordsShopModel.tblOffice" Role="tblOffice" Multiplicity="0..1" />
+          <End Type="VinylRecordsShopModel.tblBoss" Role="tblBoss" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblOffice">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="tblBoss">
+              <PropertyRef Name="OfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEmployees_tblBoss">
+          <End Type="VinylRecordsShopModel.tblBoss" Role="tblBoss" Multiplicity="0..1" />
+          <End Type="VinylRecordsShopModel.tblEmployee" Role="tblEmployee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBoss">
+              <PropertyRef Name="BossID" />
+            </Principal>
+            <Dependent Role="tblEmployee">
+              <PropertyRef Name="BossID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrders_tblCustomer">
+          <End Type="VinylRecordsShopModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="VinylRecordsShopModel.tblOrder" Role="tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCustomer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOrders_tblEmployees">
+          <End Type="VinylRecordsShopModel.tblEmployee" Role="tblEmployee" Multiplicity="0..1" />
+          <End Type="VinylRecordsShopModel.tblOrder" Role="tblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmployee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="tblOrder">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VinylRecordsShopModelStoreContainer" CdmEntityContainer="VinylRecordsShopEntities">
+          <EntitySetMapping Name="tblAlbums">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblAlbum">
+              <MappingFragment StoreEntitySet="tblAlbum">
+                <ScalarProperty Name="Storage" ColumnName="Storage" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblArtists">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblArtist">
+              <MappingFragment StoreEntitySet="tblArtist">
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBosses">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblBoss">
+              <MappingFragment StoreEntitySet="tblBoss">
+                <ScalarProperty Name="JobDescritions" ColumnName="JobDescritions" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="BossLastName" ColumnName="BossLastName" />
+                <ScalarProperty Name="BossName" ColumnName="BossName" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="BossID" ColumnName="BossID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCustomers">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblCustomer">
+              <MappingFragment StoreEntitySet="tblCustomer">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployees">
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="BossID" ColumnName="BossID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGenres">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblGenre">
+              <MappingFragment StoreEntitySet="tblGenre">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOffices">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblOffice">
+              <MappingFragment StoreEntitySet="tblOffices">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOrders">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblOrder">
+              <MappingFragment StoreEntitySet="tblOrders">
+                <ScalarProperty Name="NumberOfPieces" ColumnName="NumberOfPieces" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAlbums">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwAlbum">
+              <MappingFragment StoreEntitySet="vwAlbum">
+                <ScalarProperty Name="Storage" ColumnName="Storage" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwArtists">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwArtist">
+              <MappingFragment StoreEntitySet="vwArtists">
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwBosses">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwBoss">
+              <MappingFragment StoreEntitySet="vwBoss">
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="JobDescritions" ColumnName="JobDescritions" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="BossLastName" ColumnName="BossLastName" />
+                <ScalarProperty Name="BossName" ColumnName="BossName" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="BossID" ColumnName="BossID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwCustomers">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwCustomer">
+              <MappingFragment StoreEntitySet="vwCustomers">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwEmployees">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwEmployee">
+              <MappingFragment StoreEntitySet="vwEmployees">
+                <ScalarProperty Name="BossName" ColumnName="BossName" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="BossID" ColumnName="BossID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwGenres">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwGenre">
+              <MappingFragment StoreEntitySet="vwGenres">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GenreID" ColumnName="GenreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwOffices">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwOffice">
+              <MappingFragment StoreEntitySet="vwOffice">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwOrders">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwOrder">
+              <MappingFragment StoreEntitySet="vwOrders">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="NumberOfPieces" ColumnName="NumberOfPieces" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwUsers">
+            <EntityTypeMapping TypeName="VinylRecordsShopModel.vwUser">
+              <MappingFragment StoreEntitySet="vwUser">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
