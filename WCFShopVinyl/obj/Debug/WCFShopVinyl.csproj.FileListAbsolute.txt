@@ -1,0 +1,10 @@
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\WCFShopVinyl.dll.config
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\WCFShopVinyl.dll
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\WCFShopVinyl.pdb
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\EntityFramework.dll
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\EntityFramework.SqlServer.dll
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\EntityFramework.xml
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\bin\EntityFramework.SqlServer.xml
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\obj\Debug\WCFShopVinyl.dll
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\obj\Debug\WCFShopVinyl.pdb
+C:\HG\Interni2017-4\JovanKulevski\Jovan_Kulevski_Wpf_Mvvm_Projekat\WCFShopVinyl\obj\Debug\WCFShopVinyl.csprojResolveAssemblyReference.cache
